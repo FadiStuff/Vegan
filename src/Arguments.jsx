@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import data from "./data/full_arguments_array.json";
+import Layout from "./Layout";
 
-export default function App() {
+export default function Arguments() {
   const [tone, setTone] = useState("ethical");
 
   return (
-    <div className="p-6 max-w-5xl mx-auto text-gray-900">
-
-      {/* Veganism definition box */}
-      <div className="mb-10 p-4 bg-gray-100 border-l-4 border-green-600 rounded-xl shadow-sm text-base leading-relaxed">
-        <p>
-          <strong>Veganism</strong> is a way of living that avoids using animals for food, clothing, or other purposes. It’s based on the understanding that animals are not ours to exploit. As conscious, intelligent beings, we have a responsibility to protect those who are weaker—not profit from them.
-        </p>
-      </div>
+    <Layout>
+      
 
       <h1 className="text-4xl font-extrabold mb-10 text-center">
         Top Arguments Against Veganism (and Responses)
@@ -51,6 +46,6 @@ export default function App() {
           </div>
         ))}
       </div>
-    </div>
+    </Layout>
   );
 }
