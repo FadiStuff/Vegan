@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Layout from "./Layout";
 
 export default function WhyVegan() {
   const [expanded, setExpanded] = useState({
@@ -12,17 +11,18 @@ export default function WhyVegan() {
     setExpanded((prev) => ({ ...prev, [section]: !prev[section] }));
 
   return (
-    <Layout>
-      <h1 className="text-4xl font-bold mb-6 text-center">Why Vegan?</h1>
+    <div className="px-4 pt-8 pb-16 text-[#3a3a3a]">
+      <h1 className="text-4xl font-bold text-center text-[#265947] mb-12 font-serif">
+        Why Vegan?
+      </h1>
 
-      <p className="mb-6 text-lg leading-relaxed text-gray-800">
-        <strong>Veganism</strong> is a way of living that avoids using animals for food, clothing, or other purposes. It’s based on the understanding that animals are not ours to exploit. As conscious, intelligent beings, we have a responsibility to protect those who are weaker—not profit from them.
-      </p>
-
-      <section className="space-y-12">
+      <section className="space-y-12 max-w-3xl mx-auto">
         {/* 🧘 Ethics Section */}
         <div>
-          <h2 className="text-2xl font-semibold mb-2">
+          <h2
+            className="text-2xl font-semibold mb-2 text-[#265947] font-serif cursor-pointer"
+            onClick={() => toggle("ethics")}
+          >
             🧘 Ethics: Because animals are not ours to use
           </h2>
           <p className="mb-2">
@@ -57,7 +57,10 @@ export default function WhyVegan() {
 
         {/* 🌍 Environment Section */}
         <div>
-          <h2 className="text-2xl font-semibold mb-2">
+          <h2
+            className="text-2xl font-semibold mb-2 text-[#265947] font-serif cursor-pointer"
+            onClick={() => toggle("environment")}
+          >
             🌍 Environment: Because we only have one planet
           </h2>
           <p className="mb-2">
@@ -89,7 +92,10 @@ export default function WhyVegan() {
 
         {/* 💪 Health Section */}
         <div>
-          <h2 className="text-2xl font-semibold mb-2">
+          <h2
+            className="text-2xl font-semibold mb-2 text-[#265947] font-serif cursor-pointer"
+            onClick={() => toggle("health")}
+          >
             💪 Health: Because your body deserves better too
           </h2>
           <p className="mb-2">
@@ -122,6 +128,6 @@ export default function WhyVegan() {
           </button>
         </div>
       </section>
-    </Layout>
+    </div>
   );
 }

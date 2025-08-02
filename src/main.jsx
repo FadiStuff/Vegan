@@ -1,18 +1,22 @@
-import './index.css';
-import { createRoot } from 'react-dom/client';
-import { StrictMode } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import "./index.css"; // ✅ this loads Tailwind styles
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Arguments from "./Arguments";
+import Layout from "./Layout";
+import WhyVegan from "./WhyVegan";
+import Home from "./Home"; // ✅ NEW: Import your new homepage
 
-import WhyVegan from './WhyVegan.jsx';
-import Arguments from './Arguments.jsx';
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter basename={import.meta.env.DEV ? "/" : "/Vegan/"}>
-      <Routes>
-        <Route path="/" element={<WhyVegan />} />
-        <Route path="/arguments" element={<Arguments />} />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />           {/* ✅ New Homepage */}
+          <Route path="/arguments" element={<Arguments />} />
+          <Route path="/whyvegan" element={<WhyVegan />} /> {/* ✅ WhyVegan moved to its own route */}
+        </Routes>
+      </Layout>
+    </Router>
+  </React.StrictMode>
 );
