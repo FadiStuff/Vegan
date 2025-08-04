@@ -1,7 +1,7 @@
 import "./index.css"; // ✅ this loads Tailwind styles
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Arguments from "./Arguments";
 import Layout from "./Layout";
 import WhyVegan from "./WhyVegan";
