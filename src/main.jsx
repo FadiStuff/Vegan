@@ -6,6 +6,7 @@ import Arguments from "./Arguments";
 import Layout from "./Layout";
 import WhyVegan from "./WhyVegan";
 import Home from "./Home"; // ✅ NEW: Import your new homepage
+import SourcesOfMeat from "./SourcesOfMeat";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<Home />} />           {/* ✅ New Homepage */}
           <Route path="/arguments" element={<Arguments />} />
+          <Route path="/sourcesofmeat" element={<SourcesOfMeat />} />
           <Route path="/whyvegan" element={<WhyVegan />} /> {/* ✅ WhyVegan moved to its own route */}
         </Routes>
       </Layout>

@@ -8,13 +8,16 @@ export default function Layout({ children }) {
       <header className="py-6 border-b border-gray-200 mb-12">
 <nav className="max-w-5xl mx-auto px-6 flex justify-between text-sm">
           <Link to="/" className="text-green-700 underline">
-            Vegan is
+            Veganism is
           </Link>
           <Link to="/whyvegan" className="text-green-700 underline">
             Why Vegan?
           </Link>
           <Link to="/arguments" className="text-green-700 underline">
-            Arguments
+            but what about...
+          </Link>
+          <Link to="/sourcesofmeat" className="text-green-700 underline">
+            SourcesOfMeat
           </Link>
         </nav>
       </header>
