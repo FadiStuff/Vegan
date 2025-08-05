@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center py-24 px-4 text-center">
       <h1 className="text-5xl font-bold text-[#265947] mb-8 font-serif">
-        Veganism is...
+        Veganism is
       </h1>
       <div className="bg-[#f0f9f5] p-6 rounded-xl shadow max-w-2xl">
         <p className="text-xl italic text-[#3a3a3a] leading-relaxed font-light">
