@@ -2,8 +2,10 @@ import React, { useState } from "react";
 
 export default function SourcesOfMeat() {
   const [expanded, setExpanded] = useState({
-    factory: false,
-    humane: false,
+    factory: true,
+    humane: true,
+    backyard: true,
+    commonThread: true,
   });
 
   const toggle = (section) =>

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 export default function WhyJustSomeAnimals() {
   const [expanded, setExpanded] = useState({
-    doublestandard: false,
-    OtherCultures: false,
-    health: false,
-    pet: false,
-    consistency: false,
-    naming: false,
+    doublestandard: true,
+    OtherCultures: true,
+    health: true,
+    pet: true,
+    consistency: true,
+    naming: true,
   });
 
   const toggle = (section) =>

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 export default function WhyVegan() {
   const [expanded, setExpanded] = useState({
-    ethics: false,
-    environment: false,
-    health: false,
+    ethics: true,
+    environment: true,
+    health: true,
   });
 
   const toggle = (section) =>
