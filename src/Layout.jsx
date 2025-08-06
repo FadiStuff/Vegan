@@ -11,13 +11,17 @@ export default function Layout({ children }) {
             Veganism is
           </Link>
           <Link to="/whyvegan" className="text-green-700 underline">
-            Why Vegan?
+            Why vegan?
           </Link>
           <Link to="/arguments" className="text-green-700 underline">
-            but what about...
+            But what about...
           </Link>
+          <Link to="/why-just-some-animals" className="text-green-700 underline">
+  Why some animals, not others?
+</Link>
+
           <Link to="/sourcesofmeat" className="text-green-700 underline">
-            SourcesOfMeat
+            Sources of meat
           </Link>
         </nav>
       </header>
