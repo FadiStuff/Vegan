@@ -1,3 +1,5 @@
+<!-- type: Ethical & Moral -->
+
 # Argument 16: "I only eat 'ethical' or 'free-range' meat."
 
 ## TL;DRs

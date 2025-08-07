@@ -1,3 +1,5 @@
+<!-- type: Ethical & Moral -->
+
 # Argument 30: "We’re smarter than animals."
 
 ## TL;DRs

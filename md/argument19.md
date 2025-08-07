@@ -1,3 +1,5 @@
+<!-- type: Logical -->
+
 # Argument 19: "Animals would overpopulate if we stopped eating them."
 
 ## TL;DRs

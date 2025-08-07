@@ -1,3 +1,5 @@
+<!-- type: Cultural & Social -->
+
 # Argument 23: "What about indigenous cultures that rely on animal products?"
 
 ## TL;DRs

@@ -1,3 +1,5 @@
+<!-- type: Ethical & Moral -->
+
 # Argument 26: "Animals are just here for us to use."
 
 ## TL;DRs

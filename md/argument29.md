@@ -1,3 +1,5 @@
+<!-- type: Cultural & Social -->
+
 # Argument 29: "Why care about animals when humans are suffering?"
 
 ## TL;DRs

@@ -1,3 +1,5 @@
+<!-- type: Cultural & Social -->
+
 # Argument 21: "Animals are treated well on small/local farms."
 
 ## TL;DRs

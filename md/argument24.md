@@ -1,3 +1,5 @@
+<!-- type: Evolutionary -->
+
 # Argument 24: "Lions and other animals eat meat—it’s natural."
 
 ## TL;DRs

@@ -1,3 +1,5 @@
+<!-- type: Health & Nutrition -->
+
 # Argument 12: "I need to eat animal products for my health."
 
 ## TL;DRs

@@ -1,3 +1,5 @@
+<!-- type: Psychological -->
+
 # Argument 27: "Vegans are annoying / preachy / self-righteous."
 
 ## TL;DRs

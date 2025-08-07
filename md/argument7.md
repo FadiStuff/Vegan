@@ -1,3 +1,5 @@
+<!-- type: Ethical & Moral -->
+
 # Argument 7: "Animals are killed humanely."
 
 ## TL;DRs

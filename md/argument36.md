@@ -1,3 +1,5 @@
+<!-- type: Logical -->
+
 # Argument 36: "What if you were stranded on a desert island?"
 
 ## TL;DRs

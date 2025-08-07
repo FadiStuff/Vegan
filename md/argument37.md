@@ -1,3 +1,5 @@
+<!-- type: Health & Nutrition -->
+
 # Argument 37: "What about Vitamin B₁₂?"
 
 ## TL;DRs

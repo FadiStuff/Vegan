@@ -1,3 +1,5 @@
+<!-- type: Logical -->
+
 # Argument 11: "Animals are going to die anyway."
 
 ## TL;DRs

@@ -1,3 +1,5 @@
+<!-- type: Psychological -->
+
 # Argument 28: "I couldn’t live without cheese / bacon / etc."
 
 ## TL;DRs

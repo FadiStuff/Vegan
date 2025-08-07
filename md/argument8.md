@@ -1,3 +1,5 @@
+<!-- type: Evolutionary -->
+
 # Argument 8: "We’ve eaten meat for thousands of years."
 
 ## TL;DRs

@@ -1,3 +1,5 @@
+<!-- type: Logical -->
+
 # Argument 5: "But plants also are alive and feel pain."
 
 ## TL;DRs

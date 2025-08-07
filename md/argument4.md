@@ -1,3 +1,5 @@
+<!-- type: Ethical & Moral -->
+
 # Argument 4: "Animals don’t have rights."
 
 ## TL;DRs

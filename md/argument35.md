@@ -1,3 +1,5 @@
+<!-- type: Cultural & Social -->
+
 # Argument 35: "What about farmers’ jobs if we all became vegan?"
 
 ## TL;DRs

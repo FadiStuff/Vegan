@@ -1,3 +1,5 @@
+<!-- type: Logical -->
+
 # Argument 10: "One person won’t make a difference."
 
 ## TL;DRs

@@ -10,11 +10,17 @@ function parseMarkdownFile(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const lines = content.split('\n');
 
+  // 🔍 Extract argument title
   const titleLine = lines.find(line => line.startsWith('# Argument'));
   if (!titleLine) return null;
 
   const argumentMatch = titleLine.match(/^# Argument \d+: "(.*?)"/);
   const argument = argumentMatch ? argumentMatch[1].trim() : 'Unknown';
+
+  // ✅ Extract the hidden type comment
+  const typeLine = lines.find(line => line.trim().startsWith('<!-- type:'));
+  const typeMatch = typeLine ? typeLine.match(/<!-- type:\s*(.*?)\s*-->/) : null;
+  const type = typeMatch ? typeMatch[1].trim() : 'Uncategorized';
 
   const responses = {
     ethical: { tldr: '', body: '' },
@@ -73,8 +79,10 @@ function parseMarkdownFile(filePath) {
     responses[currentType].body = bodyBuffer.join('\n').trim();
   }
 
-  return { argument, responses };
+  // ✅ Now include the type in the return value
+  return { argument, responses, type };
 }
+
 
 function buildJsonFromMarkdown() {
   const files = fs.readdirSync(mdDir)

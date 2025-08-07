@@ -1,3 +1,5 @@
+<!-- type: Psychological -->
+
 # Argument 15: "Vegans think they’re better than everyone else."
 
 ## TL;DRs

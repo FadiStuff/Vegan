@@ -1,3 +1,5 @@
+<!-- type: Cultural & Social -->
+
 # Argument 22: "It’s part of my religion."
 
 ## TL;DRs

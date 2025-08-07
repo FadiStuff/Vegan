@@ -1,3 +1,5 @@
+<!-- type: Ethical & Moral -->
+
 # Argument 6: "It’s my personal choice to eat meat."
 
 ## TL;DRs

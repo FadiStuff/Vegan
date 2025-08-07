@@ -1,3 +1,5 @@
+<!-- type: Logical -->
+
 # Argument 34: "Isn’t being vegetarian enough?"
 
 ## TL;DRs

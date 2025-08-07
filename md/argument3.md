@@ -1,3 +1,6 @@
+<!-- type: Psychological -->
+
+
 # Argument 3: "Veganism is extreme or too radical."
 
 ## TL;DRs

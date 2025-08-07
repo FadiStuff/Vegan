@@ -1,3 +1,5 @@
+<!-- type: Evolutionary -->
+
 # Argument 17: "Being vegan is unnatural."
 
 ## TL;DRs

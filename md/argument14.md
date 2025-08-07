@@ -1,3 +1,5 @@
+<!-- type: Environmental -->
+
 # Argument 14: "Vegans kill animals too—look at crop harvesting"
 
 ## TL;DRs
