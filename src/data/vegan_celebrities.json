@@ -1,0 +1,255 @@
+[
+  {
+    "name": "A$AP Rocky",
+    "field": "Musician",
+    "veganSince": 2019,
+    "bio": "Rapper who revealed a switch to a vegan lifestyle in 2019 after years of pescatarian/vegetarian eating.",
+    "source": "https://vegnews.com/aap-rocky-says-hes-vegan-on-new-single"
+  },
+  {
+    "name": "Aamir Khan",
+    "field": "Actor/Filmmaker",
+    "veganSince": 2015,
+    "bio": "Indian actor-director; went vegan for health and ethics; PETA India Person of the Year 2015",
+    "source": "https://www.petaindia.com/blog/actor-aamir-khan-goes-vegan/"
+  },
+  {
+    "name": "Alicia Silverstone",
+    "field": "Actress & Author",
+    "veganSince": 1998,
+    "bio": "Actress and author of 'The Kind Diet'; raises her son vegan; longtime PETA advocate",
+    "source": "https://www.peta.org/blog/alicia-silverstone-vegan/"
+  },
+  {
+    "name": "Ariana Grande",
+    "field": "Singer",
+    "veganSince": 2013,
+    "bio": "Grammy-winning pop star; animal rescue advocate; went vegan at 19",
+    "source": "https://www.veganfoodandliving.com/people/ariana-grande-vegan/"
+  },
+  {
+    "name": "Ava DuVernay",
+    "field": "Film Director",
+    "veganSince": 2017,
+    "bio": "Director of 'Selma' and '13th'; links veganism with social justice",
+    "source": "https://www.nzherald.co.nz/entertainment/ava-duvernay-named-worlds-most-beautiful-vegan/4JM6ZV6U6UP2V45QDN4H5Q6C2A/"
+  },
+  {
+    "name": "Benedict Cumberbatch",
+    "field": "Actor",
+    "veganSince": 2018,
+    "bio": "Oscar-nominated actor; publicly confirmed plant-based diet during press for Marvel films",
+    "source": "https://www.nzherald.co.nz/entertainment/benedict-cumberbatch-named-worlds-most-beautiful-vegan/2G54S5HNGQ7N6UQ3ZQ2D6COW2M/"
+  },
+  {
+    "name": "Billie Eilish",
+    "field": "Singer-Songwriter",
+    "veganSince": 2014,
+    "bio": "Grammy-winning singer; outspoken on animal welfare and environment; PETA Person of the Year 2021",
+    "source": "https://www.plantbasednews.org/post/billie-eilish-vegan"
+  },
+  {
+    "name": "Bryan Adams",
+    "field": "Singer-Songwriter",
+    "veganSince": 1989,
+    "bio": "Canadian rock musician; advocates 'If you love animals, don’t eat them.'",
+    "source": "https://www.veganfoodandliving.com/people/bryan-adams-vegan/"
+  },
+  {
+    "name": "Elliot Page",
+    "field": "Actor & Producer",
+    "veganSince": 2013,
+    "bio": "Actor known for 'Juno' and 'The Umbrella Academy'; outspoken on animal rights and climate",
+    "source": "https://www.veganfoodandliving.com/people/elliot-page-vegan/"
+  },
+  {
+    "name": "Erykah Badu",
+    "field": "Musician",
+    "veganSince": 1997,
+    "bio": "Neo-soul singer-songwriter who has been vegan since 1997, citing health and energy as key reasons.",
+    "source": "https://people.com/food/erykah-badu-vegan-soul-food-party-inside-details/"
+  },
+  {
+    "name": "Evanna Lynch",
+    "field": "Actress/Activist",
+    "veganSince": 2014,
+    "bio": "'Harry Potter' star; hosts 'The ChickPeeps' podcast; advocates cruelty-free beauty",
+    "source": "https://www.veganfoodandliving.com/people/evanna-lynch-vegan/"
+  },
+  {
+    "name": "James Cameron",
+    "field": "Film Director",
+    "veganSince": 2012,
+    "bio": "Director of 'Titanic' and 'Avatar'; produced 'The Game Changers'; promotes 'futurevore' eating",
+    "source": "https://www.veganfoodandliving.com/news/james-cameron-vegan/"
+  },
+  {
+    "name": "Jared Leto",
+    "field": "Actor & Musician",
+    "veganSince": 1997,
+    "bio": "Oscar-winning actor and musician; credits vegan diet for health and longevity",
+    "source": "https://www.veganfoodandliving.com/people/jared-leto-vegan/"
+  },
+  {
+    "name": "Jason Mraz",
+    "field": "Musician",
+    "veganSince": 2011,
+    "bio": "Singer-songwriter who adopted an all-plant-based diet in 2011 and credits it for better health and productivity.",
+    "source": "https://www.businessinsider.com/17-celebrities-you-didnt-know-were-vegan-2016-7"
+  },
+  {
+    "name": "Jermaine Dupri",
+    "field": "Musician",
+    "veganSince": 2004,
+    "bio": "Hip-hop producer and music executive vegan since the early 2000s; active promoter of plant-based living.",
+    "source": "https://rollingout.com/2023/04/05/vegan-jermaine-dupri/"
+  },
+  {
+    "name": "Joaquin Phoenix",
+    "field": "Actor & Producer",
+    "veganSince": 1977,
+    "bio": "Oscar-winning actor; lifelong ethical vegan; spoke against dairy cruelty in 2020 Oscars speech",
+    "source": "https://www.livekindly.com/joaquin-phoenix-vegan-since-age-3/"
+  },
+  {
+    "name": "Lenny Kravitz",
+    "field": "Musician",
+    "veganSince": 2016,
+    "bio": "Rock legend who follows a vegan, largely raw diet and promotes sustainability through home-grown produce.",
+    "source": "https://vegnews.com/lenny-kravitz-vegan-diet-fit"
+  },
+  {
+    "name": "Leona Lewis",
+    "field": "Musician",
+    "veganSince": 2012,
+    "bio": "British pop singer raised vegetarian who went fully vegan in 2012; outspoken animal-rights advocate.",
+    "source": "https://www.veganfirst.com/article/did-you-know-leona-lewis-and-bryan-adams-are-vegans-"
+  },
+  {
+    "name": "Lewis Hamilton",
+    "field": "Formula 1 Driver",
+    "veganSince": 2017,
+    "bio": "Seven-time F1 world champion; co-founded Neat Burger; vocal about climate and animal issues",
+    "source": "https://www.espn.com/f1/story/_/id/27977910/lewis-hamilton-urges-fans-go-vegan-save-planet"
+  },
+  {
+    "name": "Maggie Q",
+    "field": "Actress/Model",
+    "veganSince": 2001,
+    "bio": "Actor known for 'Nikita'; went vegan after learning about animal cruelty; longtime PETA ambassador",
+    "source": "https://www.veganfoodandliving.com/people/maggie-q-vegan/"
+  },
+  {
+    "name": "Mayim Bialik",
+    "field": "Actress/Neuroscientist",
+    "veganSince": 2009,
+    "bio": "Actress and neuroscientist known for using her platform to advocate for veganism and animal welfare.",
+    "source": "https://www.livekindly.com/vegan-celebrities-mayim-bialik/"
+  },
+  {
+    "name": "Moby",
+    "field": "Musician & Activist",
+    "veganSince": 1987,
+    "bio": "Musician and animal activist who's 'vegan for life' and uses his platform to educate on animal rights.",
+    "source": "https://www.livekindly.com/vegan-celebrities-moby/"
+  },
+  {
+    "name": "Morrissey",
+    "field": "Musician; Former lead singer of The Smiths",
+    "veganSince": 2015,
+    "bio": "English singer-songwriter and former frontman of The Smiths; outspoken animal rights advocate; went vegetarian in childhood and adopted a vegan diet around 2015; known for banning meat at his concerts.",
+    "source": "https://viva.org.uk/lifestyle/living-vegan/celebrities/musicians/morrissey/"
+  },
+  {
+    "name": "Mýa",
+    "field": "Musician",
+    "veganSince": 2014,
+    "bio": "Grammy-winning R&B artist who became vegan in 2014 and created resources to help others go plant-based.",
+    "source": "https://www.peta.org/features/mya-from-vegetarian-to-vegan/"
+  },
+  {
+    "name": "Natalie Portman",
+    "field": "Actress & Producer",
+    "veganSince": 2011,
+    "bio": "Oscar-winning actress; went vegan after reading 'Eating Animals'; produced the documentary adaptation",
+    "source": "https://www.peta.org/features/natalie-portman-vegan/"
+  },
+  {
+    "name": "Pamela Anderson",
+    "field": "Actress & Activist",
+    "veganSince": 1990,
+    "bio": "Actor and animal-rights advocate; PETA Person of the Year 2016; campaigns against fur and animal testing",
+    "source": "https://www.peta.org/about-peta/meet-our-staff/pamela-anderson/"
+  },
+  {
+    "name": "RZA",
+    "field": "Rapper & Producer",
+    "veganSince": 1997,
+    "bio": "Wu-Tang Clan leader; phased to vegan by 1997; advocates respect for all life",
+    "source": "https://www.veganfoodandliving.com/people/rza-vegan/"
+  },
+  {
+    "name": "Sadie Sink",
+    "field": "Actress",
+    "veganSince": 2016,
+    "bio": "'Stranger Things' actor; mentored by Woody Harrelson; went vegan at 14",
+    "source": "https://www.veganfoodandliving.com/people/sadie-sink-vegan/"
+  },
+  {
+    "name": "Sonam Kapoor",
+    "field": "Actress",
+    "veganSince": 2018,
+    "bio": "Bollywood star; turned vegan in 2018; PETA India Person of the Year 2018",
+    "source": "https://www.slurrp.com/article/sonam-kapoor-ahuja-wins-peta-indias-2018-person-of-the-year-award-1641711082647"
+  },
+  {
+    "name": "Stevie Wonder",
+    "field": "Singer-Songwriter",
+    "veganSince": 2014,
+    "bio": "Music icon; went vegan for health and environment; promotes sustainability",
+    "source": "https://www.veganfoodandliving.com/news/stevie-wonder-vegan/"
+  },
+  {
+    "name": "Tobey Maguire",
+    "field": "Actor",
+    "veganSince": 2009,
+    "bio": "Actor known for 'Spider-Man'; vegetarian since 1992, fully vegan since 2009",
+    "source": "https://www.veganfoodandliving.com/people/tobey-maguire-vegan/"
+  },
+  {
+    "name": "Tony Kanal",
+    "field": "Musician",
+    "veganSince": 2012,
+    "bio": "No Doubt bassist who went vegan in 2012 and actively supports animal-rights causes.",
+    "source": "https://viva.org.uk/lifestyle/living-vegan/celebrities/musicians/tony-kanal-no-doubt/"
+  },
+  {
+    "name": "Travis Barker",
+    "field": "Musician (Drummer)",
+    "veganSince": 2008,
+    "bio": "Blink-182 drummer; credits vegan diet post-2008 for energy and recovery; co-founded vegan ventures",
+    "source": "https://vegnews.com/vegan-news/celebrities/travis-barker-vegan-diet"
+  },
+  {
+    "name": "Will.i.am",
+    "field": "Musician",
+    "veganSince": 2017,
+    "bio": "Black Eyed Peas frontman who went vegan in 2017 after health scares and has since advocated for animals.",
+    "source": "https://vegnews.com/vegan-hip-hop-stars"
+  },
+  {
+  "name": "Ricky Gervais",
+  "field": "Comedian, Actor, and Writer",
+  "veganSince": 2022,
+  "bio": "British comedian, actor, and creator of 'The Office'; long-time animal rights advocate who went fully vegan in 2024, citing ethical concerns about animal exploitation.",
+  "source": "https://plantbasednews.org/news/ricky-gervais-felt-hypocritical-before-vegan/"
+}
+,
+  {
+    "name": "Woody Harrelson",
+    "field": "Actor & Environmentalist",
+    "veganSince": 1985,
+    "bio": "Actor and environmental activist; credited with inspiring co-stars like Sadie Sink to go vegan",
+    "source": "https://www.livekindly.com/woody-harrelson-vegan/"
+  }
+]

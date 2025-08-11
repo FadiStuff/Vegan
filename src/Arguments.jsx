@@ -18,7 +18,7 @@ export default function Arguments() {
 
   const types = useMemo(() => {
     const set = new Set(data.map((d) => d.type).filter(Boolean));
-return ["Show all", ...Array.from(set).sort()];
+    return ["All", ...Array.from(set).sort()];
   }, []);
 
   const filtered = useMemo(() => {
@@ -29,16 +29,18 @@ return ["Show all", ...Array.from(set).sort()];
 
   return (
     <div className="px-4 pt-8 pb-16 text-[#3a3a3a]">
-      <h1 className="text-4xl font-bold text-center text-[#265947] mb-12 font-serif">
+      <h1 className="text-4xl font-bold text-center text-[#265947] mb-4 font-serif">
         Arguments Against Veganism (and Responses)
       </h1>
 
-      <div className="flex flex-wrap gap-4 mb-8 justify-center">
-
-        <label className="flex items-center gap-2">
-          <span className="font-medium">Argument type:</span>
+      {/* Filter bar - centered to match content width */}
+      <div className="max-w-3xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-3 mb-8 flex flex-wrap gap-4 items-center">
+        <label className="flex items-center gap-2 text-sm">
+          <span className="font-medium">
+            🗂 Argument type:
+          </span>
           <select
-            className="border border-gray-300 rounded p-2"
+            className="border border-gray-300 rounded-md px-2 py-1 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947] focus:border-[#265947] transition text-sm"
             value={argumentType}
             onChange={(e) => setArgumentType(e.target.value)}
           >
@@ -50,10 +52,12 @@ return ["Show all", ...Array.from(set).sort()];
           </select>
         </label>
 
-        <label className="flex items-center gap-2">
-          <span className="font-medium">Response type:</span>
+        <label className="flex items-center gap-2 text-sm">
+          <span className="font-medium">
+            📄 Response type:
+          </span>
           <select
-            className="border border-gray-300 rounded p-2"
+            className="border border-gray-300 rounded-md px-2 py-1 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947] focus:border-[#265947] transition text-sm"
             value={responseType}
             onChange={(e) => setResponseType(e.target.value)}
           >
@@ -62,17 +66,18 @@ return ["Show all", ...Array.from(set).sort()];
             <option value="factual">Factual</option>
           </select>
         </label>
-
-        
       </div>
 
+      {/* Content */}
       <div className="space-y-6 max-w-3xl mx-auto">
         {filtered.map((arg) => {
           const res = arg.responses?.[responseType] || {};
           return (
             <div key={arg.id} className="border-b pb-6">
               <div className="flex items-center justify-between gap-3 flex-wrap">
-                <h2 className="text-xl font-semibold font-serif">{arg.argument}</h2>
+                <h2 className="text-xl font-semibold font-serif">
+                  {arg.argument}
+                </h2>
                 {arg.type && (
                   <span
                     className={`text-sm font-medium px-2 py-1 rounded ${
@@ -84,8 +89,10 @@ return ["Show all", ...Array.from(set).sort()];
                 )}
               </div>
 
-              <div className="mt-3 bg-green-50 border-l-4 border-green-400 p-4 rounded-md">
-                <p className="font-semibold text-green-900 mb-1">Quick answer:</p>
+              <div className="mt-3 bg-green-50 border-l-4 border-green-400 p-4 rounded-md max-w-2xl">
+                <p className="font-semibold text-green-900 mb-1">
+                  Quick answer:
+                </p>
                 <p className="text-gray-800">{res.tldr}</p>
               </div>
 

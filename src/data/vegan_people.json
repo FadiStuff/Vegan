@@ -1,0 +1,104 @@
+[
+  {
+    "category": "Athletes",
+    "description": "Breaking the 'weak vegan' myth with world-class performances across strength, endurance, combat, team, and extreme sports.",
+    "profiles": [
+      {
+        "name": "Lewis Hamilton",
+        "sport": "Formula 1",
+        "achievements": "7× F1 World Champion",
+        "veganSince": 2017,
+        "image": "/images/athletes/lewis_hamilton.jpg"
+      },
+      {
+        "name": "Venus Williams",
+        "sport": "Tennis",
+        "achievements": "7× Grand Slam singles champion",
+        "veganSince": 2011,
+        "image": "/images/athletes/venus_williams.jpg"
+      },
+      {
+        "name": "Patrik Baboumian",
+        "sport": "Strongman",
+        "achievements": "World record yoke walk, multiple powerlifting titles",
+        "veganSince": 2011,
+        "image": "/images/athletes/patrik_baboumian.jpg"
+      },
+      {
+        "name": "Alex Morgan",
+        "sport": "Soccer",
+        "achievements": "FIFA Women’s World Cup champion, Olympic gold medalist",
+        "veganSince": 2017,
+        "image": "/images/athletes/alex_morgan.jpg"
+      }
+    ]
+  },
+  {
+    "category": "Celebrities & Entertainers",
+    "description": "Famous faces using their platforms to make veganism mainstream.",
+    "profiles": [
+      {
+        "name": "Joaquin Phoenix",
+        "field": "Acting",
+        "achievements": "Academy Award winner, narrated 'Earthlings'",
+        "veganSince": 1977,
+        "image": "/images/celebs/joaquin_phoenix.jpg"
+      },
+      {
+        "name": "Natalie Portman",
+        "field": "Acting & Producing",
+        "achievements": "Academy Award winner, producer of 'Eating Animals'",
+        "veganSince": 2011,
+        "image": "/images/celebs/natalie_portman.jpg"
+      },
+      {
+        "name": "Woody Harrelson",
+        "field": "Acting",
+        "achievements": "Three-time Academy Award nominee, environmental activist",
+        "veganSince": 1985,
+        "image": "/images/celebs/woody_harrelson.jpg"
+      },
+      {
+        "name": "Pamela Anderson",
+        "field": "Acting & Activism",
+        "achievements": "Longtime animal rights activist",
+        "veganSince": 2014,
+        "image": "/images/celebs/pamela_anderson.jpg"
+      }
+    ]
+  },
+  {
+    "category": "Health Professionals",
+    "description": "Doctors, dietitians, and researchers proving plant-based diets can prevent and reverse disease.",
+    "profiles": [
+      {
+        "name": "Dr. Neal Barnard",
+        "specialty": "Nutrition & Preventive Medicine",
+        "achievements": "Founder of PCRM, author of multiple bestsellers",
+        "veganSince": 1984,
+        "image": "/images/health/neal_barnard.jpg"
+      },
+      {
+        "name": "Dr. Michael Greger",
+        "specialty": "General Medicine & Public Health",
+        "achievements": "Founder of NutritionFacts.org, author of 'How Not to Die'",
+        "veganSince": 1990,
+        "image": "/images/health/michael_greger.png"
+      },
+      {
+        "name": "Dr. Caldwell Esselstyn",
+        "specialty": "Cardiology",
+        "achievements": "Pioneered research reversing heart disease with plant-based diets",
+        "veganSince": 1984,
+        "image": "/images/health/caldwell_esselstyn.jpg"
+      },
+      {
+        "name": "Brenda Davis RD",
+        "specialty": "Registered Dietitian",
+        "achievements": "Internationally recognized plant-based nutrition expert",
+        "veganSince": 1989,
+        "image": "/images/health/brenda_davis.jpg"
+      }
+    ]
+  }
+]
