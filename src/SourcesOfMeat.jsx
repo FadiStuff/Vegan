@@ -13,7 +13,7 @@ export default function SourcesOfMeat() {
 
   return (
     <div className="px-4 pt-8 pb-16 text-[#3a3a3a]">
-      <h1 className="text-4xl font-bold text-center text-[#265947] mb-12 font-serif">
+      <h1 className="text-5xl font-bold text-center text-[#265947] mb-12 font-serif">
         Where Does Our Meat Come From?
       </h1>
 

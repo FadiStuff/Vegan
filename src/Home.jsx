@@ -4,7 +4,7 @@ import React from "react";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center py-6 px-4 text-center">
-      <h1 className="text-5xl font-bold text-[#265947] mb-4 font-serif">
+      <h1 className="text-5xl font-bold text-center text-[#265947] mb-4 font-serif">
         Veganism is
       </h1>
 

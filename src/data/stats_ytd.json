@@ -1,0 +1,12 @@
+{
+  "asOf": "2025-07-31",
+  "animalsKilledYTD": [
+    { "label": "Chickens", "value": 29000000000, "unit": "individuals", "source": "FAO / Our World in Data" },
+    { "label": "Pigs", "value": 816000000, "unit": "individuals", "source": "FAO" },
+    { "label": "Cattle (cows)", "value": 175000000, "unit": "individuals", "source": "FAO" },
+    { "label": "Sheep", "value": 350000000, "unit": "individuals", "source": "FAO" },
+    { "label": "Goats", "value": 288000000, "unit": "individuals", "source": "FAO" },
+    { "label": "Fish (wild + farmed)", "min": 565000000000, "max": 1600000000000, "unit": "individuals", "source": "Fishcount.org.uk (range)" }
+  ],
+  "footnote": "Global estimates. As of July 31, 2025"
+}

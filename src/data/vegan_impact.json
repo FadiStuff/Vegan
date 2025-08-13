@@ -1,0 +1,11 @@
+{
+  "impactStats": [
+    { "label": "Animals saved", "value": 30 },
+    { "label": "kg CO₂ saved", "value": "1.5T" },
+    { "label": "Litres water saved", "value": "200K" },
+    { "label": "m² forest saved", "value": "30" },
+    { "label": "kg methane avoided", "value": "430" },
+    { "label": "m² ocean habitat preserved", "value": "900" }
+  ],
+  "footnote": "Global estimates, 2025"
+}

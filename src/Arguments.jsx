@@ -29,9 +29,12 @@ export default function Arguments() {
 
   return (
     <div className="px-4 pt-8 pb-16 text-[#3a3a3a]">
-      <h1 className="text-4xl font-bold text-center text-[#265947] mb-4 font-serif">
-        Arguments Against Veganism (and Responses)
-      </h1>
+      <h1 className="text-5xl font-bold text-center text-[#265947] mb-4 font-serif leading-snug">
+  <span className="block">Arguments Against Veganism</span>
+  <span className="block">(and Responses)</span>
+</h1>
+
+
 
       {/* Filter bar - centered to match content width */}
       <div className="max-w-3xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-3 mb-8 flex flex-wrap gap-4 items-center">
