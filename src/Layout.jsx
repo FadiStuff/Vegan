@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <div className="min-h-screen bg-white text-gray-900 flex flex-col">
       {/* Compact, left-aligned navbar inside same width as body */}
       <header className="border-b border-gray-200">
-        <nav className="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center gap-x-8 gap-y-2">
+        <nav className="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center gap-x-8 gap-y-2">
           {/* Brand */}
           <Link to="/" className="text-xl font-serif font-bold text-[#265947] hover:opacity-90">
             Plants Over Pain
@@ -29,7 +29,7 @@ export default function Layout({ children }) {
       </header>
 
       {/* Page content uses the same container width */}
-      <main className="max-w-6xl mx-auto px-4 pb-16 flex-grow">{children}</main>
+      <main className="max-w-7xl mx-auto px-4 pb-16 flex-grow">{children}</main>
 
       <footer className="text-center text-sm text-gray-500 pb-6">
         <p>

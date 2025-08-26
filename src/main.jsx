@@ -7,12 +7,17 @@ import WhyJustSomeAnimals from "./WhyJustSomeAnimals";
 import RightSideOfHistory from "./RightSideOfHistory";
 import Layout from "./Layout";
 import WhyVegan from "./WhyVegan";
-import Home from "./Home.jsx"; // ✅ This is your "Veganism is" page
+import VeganismIs from "./VeganismIs";
+
 import SourcesOfMeat from "./SourcesOfMeat";
 import PhotoCredits from "./PhotoCredits.jsx";
 import VeganAthletes from "./VeganAthletes";
 import VeganCelebrities from "./VeganCelebrities";
 import VeganHealthPros from "./VeganHealthPros";
+import HomeTest from "./HomeTest.jsx";
+import PeopleDiets from "./PeopleDiets.jsx";
+
+
 
 // ✅ ScrollToTop component
 function ScrollToTop() {
@@ -36,7 +41,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/rightsideofhistory" element={<Navigate to="/" replace />} />
 
           {/* ✅ Veganism definition page */}
-          <Route path="/veganism-is" element={<Home />} />
+          <Route path="/veganism-is" element={<VeganismIs />} />
+
 
           {/* Other routes */}
           <Route path="/arguments" element={<Arguments />} />
@@ -47,6 +53,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/vegan-celebrities" element={<VeganCelebrities />} />
           <Route path="/vegan-health-pros" element={<VeganHealthPros />} />
           <Route path="/photo-credits" element={<PhotoCredits />} />
+          <Route path="/hometest" element={<HomeTest />} />
+          
+          <Route path="/people" element={<PeopleDiets />} />
+
+
         </Routes>
       </Layout>
     </Router>

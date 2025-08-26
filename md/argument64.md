@@ -1,6 +1,6 @@
 <!-- type: Ethical & Moral -->
 
-# Argument 63: "Better to have a safe life in a humane farm, than out in the wild."
+# Argument 64: "Better to have a safe life in a humane farm, than out in the wild."
 
 ## TL;DRs
 
