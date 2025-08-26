@@ -24,7 +24,7 @@ export default function Layout({ children }) {
             <NavLink to="/why-just-some-animals" className={linkCls}>Why some animals, not others</NavLink>
             <NavLink to="/sourcesofmeat" className={linkCls}>Sources of meat</NavLink>
             <NavLink to="/arguments" className={linkCls}>The arguments.</NavLink>
-            <NavLink to="/people" className={linkCls}>Vegans we know</NavLink>   {/* 👈 New link */}
+            <NavLink to="/people?diet=vegan" className={linkCls}>Vegans we know</NavLink>   {/* 👈 New link */}
 
             
           </div>
