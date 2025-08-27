@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import data from "./data/people_diets.json";
 
-// Helper: slugify a category (e.g., "Internet / Media / Public Figures" -> "internet-media-public-figures")
+// --- helpers for reading URL params (leave as-is) ---
 function slugify(str = "") {
   return String(str)
     .toLowerCase()
@@ -12,14 +12,11 @@ function slugify(str = "") {
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
 }
-
-// Find a canonical category from the dataset by comparing slugs
 function resolveCategoryFromParam(paramValue, categories) {
   if (!paramValue) return null;
   const wanted = slugify(paramValue);
   return (
     categories.find((c) => slugify(c) === wanted) ||
-    // tolerate common short-hands
     (wanted === "actors" && categories.find((c) => /actor/i.test(c))) ||
     (wanted === "athletes" && categories.find((c) => /athlete|sport/i.test(c))) ||
     (wanted === "internet-media-public-figures" &&
@@ -27,8 +24,6 @@ function resolveCategoryFromParam(paramValue, categories) {
     null
   );
 }
-
-// Find a canonical diet value from the dataset by case-insensitive match
 function resolveDietFromParam(paramValue, diets) {
   if (!paramValue) return null;
   const wanted = String(paramValue).toLowerCase();
@@ -46,76 +41,52 @@ const PeopleDiets = () => {
   const [onlyCertified, setOnlyCertified] = useState(false);
   const [filteredPeople, setFilteredPeople] = useState([]);
 
-  const categories = [
-    "All",
-    ...new Set(data.people.map((p) => p.category).filter(Boolean)),
-  ];
-  const diets = [
-    "All",
-    ...new Set(data.people.map((p) => p.diet.type).filter(Boolean)),
-  ];
-  const countries = [
-    "All",
-    ...new Set(data.people.map((p) => p.country).filter(Boolean)),
-  ];
+  const categories = ["All", ...new Set(data.people.map((p) => p.category).filter(Boolean))];
+  const diets = ["All", ...new Set(data.people.map((p) => p.diet.type).filter(Boolean))];
+  const countries = ["All", ...new Set(data.people.map((p) => p.country).filter(Boolean))];
 
-  // Read URL query params (?category=...&diet=...)
+  // read query params
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const categoryParam = params.get("category");
     const dietParam = params.get("diet");
 
-    // Resolve to canonical values from dataset (so dropdowns display the exact items)
     const resolvedCategory = resolveCategoryFromParam(
       categoryParam,
       categories.filter((c) => c !== "All")
     );
-    const resolvedDiet = resolveDietFromParam(
-      dietParam,
-      diets.filter((d) => d !== "All")
-    );
+    const resolvedDiet = resolveDietFromParam(dietParam, diets.filter((d) => d !== "All"));
 
     if (resolvedCategory) setCategoryFilter(resolvedCategory);
     if (resolvedDiet) setDietFilter(resolvedDiet);
   }, [location.search]);
 
-  // Certified toggle is only relevant when viewing Vegan or All
+  // show certified toggle only when relevant
   const showCertifiedControl = useMemo(
     () => dietFilter === "All" || dietFilter === "Vegan",
     [dietFilter]
   );
 
-  // If user switches to a non-relevant diet, turn off the toggle
   useEffect(() => {
     if (!showCertifiedControl && onlyCertified) setOnlyCertified(false);
   }, [showCertifiedControl, onlyCertified]);
 
+  // filtering
   useEffect(() => {
     let people = data.people;
 
     if (searchTerm.trim() !== "") {
-      const lowerSearch = searchTerm.toLowerCase();
+      const q = searchTerm.toLowerCase();
       people = people.filter(
         (p) =>
-          p.name.toLowerCase().includes(lowerSearch) ||
-          (p.category && p.category.toLowerCase().includes(lowerSearch)) ||
-          (p.country && p.country.toLowerCase().includes(lowerSearch))
+          p.name.toLowerCase().includes(q) ||
+          (p.category && p.category.toLowerCase().includes(q)) ||
+          (p.country && p.country.toLowerCase().includes(q))
       );
     }
-
-    if (categoryFilter !== "All") {
-      people = people.filter((p) => p.category === categoryFilter);
-    }
-
-    if (dietFilter !== "All") {
-      people = people.filter((p) => p.diet.type === dietFilter);
-    }
-
-    if (countryFilter !== "All") {
-      people = people.filter((p) => p.country === countryFilter);
-    }
-
-    // Apply certified filter only when it's relevant
+    if (categoryFilter !== "All") people = people.filter((p) => p.category === categoryFilter);
+    if (dietFilter !== "All") people = people.filter((p) => p.diet.type === dietFilter);
+    if (countryFilter !== "All") people = people.filter((p) => p.country === countryFilter);
     if (showCertifiedControl && onlyCertified) {
       people = people.filter((p) => p.certified_vegan === true);
     }
@@ -145,110 +116,130 @@ const PeopleDiets = () => {
     showCertifiedControl,
   ]);
 
+  // compact context pill
+  const contextLabel = useMemo(() => {
+    const parts = [];
+    if (dietFilter !== "All") parts.push(dietFilter);
+    if (categoryFilter !== "All") parts.push(categoryFilter);
+    if (countryFilter !== "All") parts.push(countryFilter);
+    return parts.length ? parts.join(" • ") : "All people";
+  }, [dietFilter, categoryFilter, countryFilter]);
+
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">People Diets</h1>
+    <div className="px-6 pt-6 pb-16 max-w-[90rem] mx-auto">
 
-      {/* Filter Toolbar */}
-      <div className="mb-6">
-        <div className="flex flex-wrap md:flex-nowrap items-center gap-3 bg-gray-50 p-3 rounded-lg shadow-sm">
-          <input
-            type="text"
-            placeholder="Search by name, category, or country"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="border p-2 rounded flex-[2] min-w-[160px] h-[42px]
-                       focus:ring-2 focus:ring-blue-400 focus:outline-none"
-          />
-
-          <select
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
-            className="border p-2 rounded flex-1 min-w-[120px] h-[42px]
-                       focus:ring-2 focus:ring-blue-400 focus:outline-none"
-          >
-            <option value="All">All categories</option>
-            {categories
-              .filter((c) => c !== "All")
-              .map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-          </select>
-
-          <select
-            value={dietFilter}
-            onChange={(e) => setDietFilter(e.target.value)}
-            className="border p-2 rounded flex-1 min-w-[120px] h-[42px]
-                       focus:ring-2 focus:ring-blue-400 focus:outline-none"
-          >
-            <option value="All">All diet types</option>
-            {diets
-              .filter((d) => d !== "All")
-              .map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-          </select>
-
-          <select
-            value={countryFilter}
-            onChange={(e) => setCountryFilter(e.target.value)}
-            className="border p-2 rounded flex-1 min-w-[120px] h-[42px]
-                       focus:ring-2 focus:ring-blue-400 focus:outline-none"
-          >
-            <option value="All">All countries</option>
-            {countries
-              .filter((c) => c !== "All")
-              .map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-          </select>
-
-          <select
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
-            className="border p-2 rounded flex-1 min-w-[120px] h-[42px]
-                       focus:ring-2 focus:ring-blue-400 focus:outline-none"
-          >
-            <option value="Name">Sort: Name</option>
-            <option value="Last verified">Sort: Last verified</option>
-            <option value="Certified">Sort: Certified first</option>
-          </select>
-
-          {/* Certified toggle: only show when relevant */}
-          {showCertifiedControl && (
-            <label className="flex items-center gap-2 text-sm ml-auto">
-              <input
-                type="checkbox"
-                className="h-4 w-4"
-                checked={onlyCertified}
-                onChange={(e) => setOnlyCertified(e.target.checked)}
-              />
-              Certified Vegan only
-            </label>
-          )}
-        </div>
-      </div>
-
-      {/* Counter */}
-      <div className="mb-4 text-gray-700 font-medium flex items-center gap-3 flex-wrap">
-        <span>Showing {filteredPeople.length} people</span>
-        {onlyCertified && (dietFilter === "All" || dietFilter === "Vegan") && (
-          <span className="text-xs text-gray-500 italic">
-            Certified = Verified full vegan lifestyle. Nost just diet. No use of animal products (strict, recent, no contradictions)
-          </span>
+      {/* Context line */}
+      <div className="mb-4 flex items-center gap-3 text-sm text-gray-600 flex-wrap">
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8f3ee] text-[#1f4a3a] border border-[#cfe6dc] font-medium">
+          {contextLabel}
+        </span>
+        <span className="text-gray-400">•</span>
+        <span>{filteredPeople.length} shown</span>
+        {showCertifiedControl && onlyCertified && (
+          <>
+            <span className="text-gray-300">•</span>
+            <span className="text-xs text-gray-500 italic">
+              Certified = Verified full vegan lifestyle. Not just diet. No use of animal products
+              (strict, recent, no contradictions)
+            </span>
+          </>
         )}
       </div>
 
+      {/* Toolbar */}
+      <div className="mb-6">
+
+        <div className="bg-[#f9f9f7] border border-gray-200 rounded-2xl shadow-sm p-3 md:p-4">
+          <div className="flex flex-nowrap items-center gap-3 overflow-x-auto">
+            {/* Search */}
+            <input
+              type="search"
+              placeholder="Search by name, category, or country"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="flex-[2] min-w-[360px] h-11 border border-gray-300 rounded-md px-3 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+              aria-label="Search by name, category, or country"
+            />
+
+            {/* Category */}
+            <select
+              value={categoryFilter}
+              onChange={(e) => setCategoryFilter(e.target.value)}
+              className="flex-[1] min-w-[150px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+            >
+              <option value="All">All categories</option>
+              {categories
+                .filter((c) => c !== "All")
+                .map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+            </select>
+
+            {/* Diet */}
+            <select
+              value={dietFilter}
+              onChange={(e) => setDietFilter(e.target.value)}
+              className="flex-[1] min-w-[150px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+            >
+              <option value="All">All diet types</option>
+              {diets
+                .filter((d) => d !== "All")
+                .map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+            </select>
+
+            {/* Country */}
+            <select
+              value={countryFilter}
+              onChange={(e) => setCountryFilter(e.target.value)}
+              className="flex-[1] min-w-[160px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+            >
+              <option value="All">All countries</option>
+              {countries
+                .filter((c) => c !== "All")
+                .map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+            </select>
+
+            {/* Sort */}
+            <select
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+              className="flex-[1] min-w-[160px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+            >
+              <option value="Name">Sort: Name</option>
+              <option value="Last verified">Sort: Last verified</option>
+              <option value="Certified">Sort: Certified first</option>
+            </select>
+
+            {/* Certified toggle */}
+            {showCertifiedControl && (
+              <label className="ml-auto flex items-center gap-2 text-sm select-none whitespace-nowrap shrink-0">
+                <input
+                  type="checkbox"
+                  className="h-4 w-4"
+                  checked={onlyCertified}
+                  onChange={(e) => setOnlyCertified(e.target.checked)}
+                />
+                Certified Vegan only
+              </label>
+            )}
+          </div>
+        </div>
+      </div>
+
       {/* Results grid */}
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
         {filteredPeople.map((p) => (
-          <li key={p.id} className="border rounded p-4 shadow bg-white">
+          <li key={p.id} className="border rounded-xl p-4 shadow-sm bg-white ring-1 ring-black/5">
             <div className="flex items-center gap-2 mb-1">
               <h2 className="font-semibold text-lg">{p.name}</h2>
               {p.certified_vegan && (
