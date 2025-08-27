@@ -4,11 +4,15 @@
   "type": "module",
   "homepage": "https://fadistuff.github.io/Vegan",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "predeploy": "vite build && cp dist/index.html dist/404.html && mkdir -p dist/veganism-is dist/arguments dist/sourcesofmeat dist/why-just-some-animals dist/whyvegan dist/vegan-athletes dist/vegan-celebrities dist/vegan-health-pros dist/photo-credits dist/hometest dist/people dist/rightsideofhistory && cp dist/index.html dist/veganism-is/index.html && cp dist/index.html dist/arguments/index.html && cp dist/index.html dist/sourcesofmeat/index.html && cp dist/index.html dist/why-just-some-animals/index.html && cp dist/index.html dist/whyvegan/index.html && cp dist/index.html dist/vegan-athletes/index.html && cp dist/index.html dist/vegan-celebrities/index.html && cp dist/index.html dist/vegan-health-pros/index.html && cp dist/index.html dist/photo-credits/index.html && cp dist/index.html dist/hometest/index.html && cp dist/index.html dist/people/index.html && cp dist/index.html dist/rightsideofhistory/index.html",
+  "deploy": "gh-pages -d dist"
+}
+
+
+,
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

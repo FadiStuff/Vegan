@@ -1,7 +1,7 @@
 import "./index.css"; // ✅ Tailwind
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { HashRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Arguments from "./Arguments";
 import WhyJustSomeAnimals from "./WhyJustSomeAnimals";
 import RightSideOfHistory from "./RightSideOfHistory";
@@ -49,11 +49,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/sourcesofmeat" element={<SourcesOfMeat />} />
           <Route path="/why-just-some-animals" element={<WhyJustSomeAnimals />} />
           <Route path="/whyvegan" element={<WhyVegan />} />
-          <Route path="/vegan-athletes" element={<VeganAthletes />} />
-          <Route path="/vegan-celebrities" element={<VeganCelebrities />} />
-          <Route path="/vegan-health-pros" element={<VeganHealthPros />} />
+          
           <Route path="/photo-credits" element={<PhotoCredits />} />
-          <Route path="/hometest" element={<HomeTest />} />
+          
           
           <Route path="/people" element={<PeopleDiets />} />
 
