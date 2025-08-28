@@ -138,7 +138,7 @@ export default function VeganismIs() {
 
         <div className="mt-10">
           <a
-            href="#/whyvegan"
+            href="/whyvegan"
             className="inline-block bg-[#265947] text-white text-lg px-6 py-3 rounded-lg shadow-sm hover:bg-[#1e4537] transition"
           >
             Learn Why Vegan
