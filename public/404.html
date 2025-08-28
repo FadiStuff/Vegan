@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <script>
+      // rafgraph/spa-github-pages pattern
+      (function () {
+        var l = window.location;
+        // Only redirect if it's not the root or an explicit index.html
+        if (l.pathname !== '/' && !l.pathname.endsWith('/index.html')) {
+          var redirect = l.protocol + '//' + l.host + '/?p=' +
+            encodeURIComponent(l.pathname + l.search + l.hash);
+          l.replace(redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>Redirecting…</body>
+</html>

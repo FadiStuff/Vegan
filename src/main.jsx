@@ -1,3 +1,7 @@
+<header className="bg-red-500 text-white text-center p-2">
+  🚀 TEST DEPLOY — {new Date().toLocaleString()}
+</header>
+
 import "./index.css"; // ✅ Tailwind
 import React from "react";
 import ReactDOM from "react-dom/client";
