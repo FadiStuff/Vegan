@@ -108,7 +108,7 @@ export default function VeganismIs() {
     <div className="px-4 py-16 bg-[#f8f9f6]">
       <section className="max-w-3xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#265947] mb-8">
-          Veganism Is TEST TEST TEST
+          Veganism Is
         </h1>
 
         <div className="bg-white/80 border border-[#dbe3dd] rounded-2xl shadow-sm p-8 md:p-12">
