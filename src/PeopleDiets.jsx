@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import data from "./data/people_diets.json";
 
-// --- helpers for reading URL params (leave as-is) ---
+// --- helpers for reading URL params ---
 function slugify(str = "") {
   return String(str)
     .toLowerCase()
@@ -61,7 +62,6 @@ const PeopleDiets = () => {
     if (resolvedDiet) setDietFilter(resolvedDiet);
   }, [location.search]);
 
-  // show certified toggle only when relevant
   const showCertifiedControl = useMemo(
     () => dietFilter === "All" || dietFilter === "Vegan",
     [dietFilter]
@@ -116,7 +116,6 @@ const PeopleDiets = () => {
     showCertifiedControl,
   ]);
 
-  // compact context pill
   const contextLabel = useMemo(() => {
     const parts = [];
     if (dietFilter !== "All") parts.push(dietFilter);
@@ -126,140 +125,152 @@ const PeopleDiets = () => {
   }, [dietFilter, categoryFilter, countryFilter]);
 
   return (
-    <div className="px-6 pt-6 pb-16 max-w-[90rem] mx-auto">
+    <>
+      {/* 🔍 SEO Helmet */}
+      <Helmet>
+        <title>Vegan & Plant-Based People Directory | Plants Over Pain</title>
+        <meta
+          name="description"
+          content="Browse a directory of vegan and plant-based people, from athletes and actors to activists. Filter by diet type, certification, country, and more."
+        />
+        <link rel="canonical" href="https://plantsoverpain.org/people" />
+      </Helmet>
 
-      {/* Context line */}
-      <div className="mb-4 flex items-center gap-3 text-sm text-gray-600 flex-wrap">
-        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8f3ee] text-[#1f4a3a] border border-[#cfe6dc] font-medium">
-          {contextLabel}
-        </span>
-        <span className="text-gray-400">•</span>
-        <span>{filteredPeople.length} shown</span>
-        {showCertifiedControl && onlyCertified && (
-          <>
-            <span className="text-gray-300">•</span>
-            <span className="text-xs text-gray-500 italic">
-              Certified = Verified full vegan lifestyle. Not just diet. No use of animal products
-              (strict, recent, no contradictions)
-            </span>
-          </>
-        )}
-      </div>
-
-      {/* Toolbar */}
-      <div className="mb-6">
-
-        <div className="bg-[#f9f9f7] border border-gray-200 rounded-2xl shadow-sm p-3 md:p-4">
-          <div className="flex flex-nowrap items-center gap-3 overflow-x-auto">
-            {/* Search */}
-            <input
-              type="search"
-              placeholder="Search by name, category, or country"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="flex-[2] min-w-[360px] h-11 border border-gray-300 rounded-md px-3 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
-              aria-label="Search by name, category, or country"
-            />
-
-            {/* Category */}
-            <select
-              value={categoryFilter}
-              onChange={(e) => setCategoryFilter(e.target.value)}
-              className="flex-[1] min-w-[150px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
-            >
-              <option value="All">All categories</option>
-              {categories
-                .filter((c) => c !== "All")
-                .map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-            </select>
-
-            {/* Diet */}
-            <select
-              value={dietFilter}
-              onChange={(e) => setDietFilter(e.target.value)}
-              className="flex-[1] min-w-[150px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
-            >
-              <option value="All">All diet types</option>
-              {diets
-                .filter((d) => d !== "All")
-                .map((d) => (
-                  <option key={d} value={d}>
-                    {d}
-                  </option>
-                ))}
-            </select>
-
-            {/* Country */}
-            <select
-              value={countryFilter}
-              onChange={(e) => setCountryFilter(e.target.value)}
-              className="flex-[1] min-w-[160px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
-            >
-              <option value="All">All countries</option>
-              {countries
-                .filter((c) => c !== "All")
-                .map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-            </select>
-
-            {/* Sort */}
-            <select
-              value={sortOption}
-              onChange={(e) => setSortOption(e.target.value)}
-              className="flex-[1] min-w-[160px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
-            >
-              <option value="Name">Sort: Name</option>
-              <option value="Last verified">Sort: Last verified</option>
-              <option value="Certified">Sort: Certified first</option>
-            </select>
-
-            {/* Certified toggle */}
-            {showCertifiedControl && (
-              <label className="ml-auto flex items-center gap-2 text-sm select-none whitespace-nowrap shrink-0">
-                <input
-                  type="checkbox"
-                  className="h-4 w-4"
-                  checked={onlyCertified}
-                  onChange={(e) => setOnlyCertified(e.target.checked)}
-                />
-                Certified Vegan only
-              </label>
-            )}
-          </div>
+      <div className="px-6 pt-6 pb-16 max-w-[90rem] mx-auto">
+        {/* Context line */}
+        <div className="mb-4 flex items-center gap-3 text-sm text-gray-600 flex-wrap">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8f3ee] text-[#1f4a3a] border border-[#cfe6dc] font-medium">
+            {contextLabel}
+          </span>
+          <span className="text-gray-400">•</span>
+          <span>{filteredPeople.length} shown</span>
+          {showCertifiedControl && onlyCertified && (
+            <>
+              <span className="text-gray-300">•</span>
+              <span className="text-xs text-gray-500 italic">
+                Certified = Verified full vegan lifestyle. Not just diet. No use
+                of animal products (strict, recent, no contradictions)
+              </span>
+            </>
+          )}
         </div>
-      </div>
 
-      {/* Results grid */}
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
-        {filteredPeople.map((p) => (
-          <li key={p.id} className="border rounded-xl p-4 shadow-sm bg-white ring-1 ring-black/5">
-            <div className="flex items-center gap-2 mb-1">
-              <h2 className="font-semibold text-lg">{p.name}</h2>
-              {p.certified_vegan && (
-                <span
-                  title="Verified vegan lifestyle (strict, recent, no contradictions)"
-                  aria-label="Certified Vegan: verified vegan lifestyle (strict, recent, no contradictions)"
-                  className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 border border-green-200"
-                >
-                  Certified Vegan
-                </span>
+        {/* Toolbar */}
+        <div className="mb-6">
+          <div className="bg-[#f9f9f7] border border-gray-200 rounded-2xl shadow-sm p-3 md:p-4">
+            <div className="flex flex-nowrap items-center gap-3 overflow-x-auto">
+              {/* Search */}
+              <input
+                type="search"
+                placeholder="Search by name, category, or country"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="flex-[2] min-w-[360px] h-11 border border-gray-300 rounded-md px-3 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+                aria-label="Search by name, category, or country"
+              />
+
+              {/* Category */}
+              <select
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value)}
+                className="flex-[1] min-w-[150px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+              >
+                <option value="All">All categories</option>
+                {categories
+                  .filter((c) => c !== "All")
+                  .map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+              </select>
+
+              {/* Diet */}
+              <select
+                value={dietFilter}
+                onChange={(e) => setDietFilter(e.target.value)}
+                className="flex-[1] min-w-[150px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+              >
+                <option value="All">All diet types</option>
+                {diets
+                  .filter((d) => d !== "All")
+                  .map((d) => (
+                    <option key={d} value={d}>
+                      {d}
+                    </option>
+                  ))}
+              </select>
+
+              {/* Country */}
+              <select
+                value={countryFilter}
+                onChange={(e) => setCountryFilter(e.target.value)}
+                className="flex-[1] min-w-[160px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+              >
+                <option value="All">All countries</option>
+                {countries
+                  .filter((c) => c !== "All")
+                  .map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+              </select>
+
+              {/* Sort */}
+              <select
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
+                className="flex-[1] min-w-[160px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
+              >
+                <option value="Name">Sort: Name</option>
+                <option value="Last verified">Sort: Last verified</option>
+                <option value="Certified">Sort: Certified first</option>
+              </select>
+
+              {/* Certified toggle */}
+              {showCertifiedControl && (
+                <label className="ml-auto flex items-center gap-2 text-sm select-none whitespace-nowrap shrink-0">
+                  <input
+                    type="checkbox"
+                    className="h-4 w-4"
+                    checked={onlyCertified}
+                    onChange={(e) => setOnlyCertified(e.target.checked)}
+                  />
+                  Certified Vegan only
+                </label>
               )}
             </div>
+          </div>
+        </div>
 
-            <p className="text-sm text-gray-700">{p.category}</p>
-            <p className="text-sm text-gray-700">Diet: {p.diet.type}</p>
-            <p className="text-sm text-gray-700">Country: {p.country || "N/A"}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+        {/* Results grid */}
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
+          {filteredPeople.map((p) => (
+            <li
+              key={p.id}
+              className="border rounded-xl p-4 shadow-sm bg-white ring-1 ring-black/5"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <h2 className="font-semibold text-lg">{p.name}</h2>
+                {p.certified_vegan && (
+                  <span
+                    title="Verified vegan lifestyle (strict, recent, no contradictions)"
+                    aria-label="Certified Vegan: verified vegan lifestyle (strict, recent, no contradictions)"
+                    className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 border border-green-200"
+                  >
+                    Certified Vegan
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-gray-700">{p.category}</p>
+              <p className="text-sm text-gray-700">Diet: {p.diet.type}</p>
+              <p className="text-sm text-gray-700">Country: {p.country || "N/A"}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

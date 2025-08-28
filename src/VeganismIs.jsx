@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 
 function CrossfadeWithGhost({
   statements,
@@ -7,8 +8,8 @@ function CrossfadeWithGhost({
   className = "",
   ghostClass = "text-red-300 blur-[1px]",
   ghostTransform = "translate(4px, 2px)",
-  ghostLagMs = 100,   // small trail
-  ghostPeak = 0.45,   // subtle max opacity
+  ghostLagMs = 100,
+  ghostPeak = 0.45,
 }) {
   const [index, setIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(1);
@@ -45,9 +46,9 @@ function CrossfadeWithGhost({
     return () => cancelAnimationFrame(rafRef.current);
   }, [index, interval, fadeMs, statements.length]);
 
-  // Ghost appears only during the transition (bell curve), with a slight lag.
   const ghostProgress = Math.min(1, Math.max(0, progress - ghostLagMs / fadeMs));
-  const ghostOpacity = Math.max(0, Math.min(1, 4 * ghostProgress * (1 - ghostProgress))) * ghostPeak;
+  const ghostOpacity =
+    Math.max(0, Math.min(1, 4 * ghostProgress * (1 - ghostProgress))) * ghostPeak;
 
   return (
     <div
@@ -55,7 +56,6 @@ function CrossfadeWithGhost({
       style={{ minHeight: "2.25rem" }}
       aria-live="polite"
     >
-      {/* GHOST (behind) — subtle & lagged */}
       <span
         className={`absolute ${className} ${ghostClass} select-none z-0`}
         style={{ opacity: ghostOpacity, transform: ghostTransform }}
@@ -71,7 +71,6 @@ function CrossfadeWithGhost({
         {statements[nextIndex]}
       </span>
 
-      {/* MAIN (front) */}
       <span
         className={`absolute transition-opacity ${className} z-10`}
         style={{ opacity: 1 - progress }}
@@ -85,7 +84,6 @@ function CrossfadeWithGhost({
         {statements[nextIndex]}
       </span>
 
-      {/* Spacer to stabilize width for different-length lines */}
       <span className={`opacity-0 ${className}`}>
         {statements[index].length > statements[nextIndex].length
           ? statements[index]
@@ -96,55 +94,59 @@ function CrossfadeWithGhost({
 }
 
 export default function VeganismIs() {
-  // Three calm, on-message lines for this page (easy to edit later)
   const statements = [
-  "Let’s not take a life for the taste of a meal.",
-  "Let’s not steal a mother’s milk for the thrill of dessert.",
-  "Let’s not wear the skin of another and call it style.",
-];
-
+    "Let’s not take a life for the taste of a meal.",
+    "Let’s not steal a mother’s milk for the thrill of dessert.",
+    "Let’s not wear the skin of another and call it style.",
+  ];
 
   return (
-    <div className="px-4 py-16 bg-[#f8f9f6]">
-      <section className="max-w-3xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#265947] mb-8">
-          Veganism Is
-        </h1>
-
-        <div className="bg-white/80 border border-[#dbe3dd] rounded-2xl shadow-sm p-8 md:p-12">
-          <p className="text-xl md:text-2xl font-serif leading-relaxed text-[#2a2a2a]">
-            Veganism is a way of living that avoids using animals for food,
-            clothing, or other purposes. It’s based on the understanding that{" "}
-            <span className="italic text-[#265947]">
-              animals are not ours to exploit
-            </span>
-            . As conscious, intelligent beings, we have a responsibility to
-            protect those who are weaker — not profit from them.
-          </p>
-        </div>
-
-        {/* Rotating statements — subtle, consistent with your other page */}
-        <CrossfadeWithGhost
-          statements={statements}
-          interval={9000}
-          fadeMs={2500}
-          className="text-lg md:text-xl font-serif text-[#2a1717] tracking-tight"
-          // tweak as desired:
-          // ghostClass="text-red-200 blur-[1px]"
-          // ghostTransform="translate(3px, 2px)"
-          // ghostLagMs={120}
-          // ghostPeak={0.35}
+    <>
+      {/* 🔍 SEO Helmet */}
+      <Helmet>
+        <title>Veganism Is | Plants Over Pain</title>
+        <meta
+          name="description"
+          content="Veganism is a way of living that avoids using animals for food, clothing, or other purposes, rooted in compassion and responsibility."
         />
+        <link rel="canonical" href="https://plantsoverpain.org/veganism-is" />
+      </Helmet>
 
-        <div className="mt-10">
-          <a
-            href="/whyvegan"
-            className="inline-block bg-[#265947] text-white text-lg px-6 py-3 rounded-lg shadow-sm hover:bg-[#1e4537] transition"
-          >
-            Learn Why Vegan
-          </a>
-        </div>
-      </section>
-    </div>
+      <div className="px-4 py-16 bg-[#f8f9f6]">
+        <section className="max-w-3xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#265947] mb-8">
+            Veganism Is
+          </h1>
+
+          <div className="bg-white/80 border border-[#dbe3dd] rounded-2xl shadow-sm p-8 md:p-12">
+            <p className="text-xl md:text-2xl font-serif leading-relaxed text-[#2a2a2a]">
+              Veganism is a way of living that avoids using animals for food,
+              clothing, or other purposes. It’s based on the understanding that{" "}
+              <span className="italic text-[#265947]">
+                animals are not ours to exploit
+              </span>
+              . As conscious, intelligent beings, we have a responsibility to
+              protect those who are weaker — not profit from them.
+            </p>
+          </div>
+
+          <CrossfadeWithGhost
+            statements={statements}
+            interval={9000}
+            fadeMs={2500}
+            className="text-lg md:text-xl font-serif text-[#2a1717] tracking-tight"
+          />
+
+          <div className="mt-10">
+            <a
+              href="/whyvegan"
+              className="inline-block bg-[#265947] text-white text-lg px-6 py-3 rounded-lg shadow-sm hover:bg-[#1e4537] transition"
+            >
+              Learn Why Vegan
+            </a>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }

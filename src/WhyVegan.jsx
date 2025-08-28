@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function WhyVegan() {
   const [activeTab, setActiveTab] = useState("ethical");
@@ -135,49 +136,63 @@ export default function WhyVegan() {
   ];
 
   return (
-    <div className="px-4 pt-10 pb-20 text-[#3a3a3a]">
-      <section className="max-w-4xl mx-auto text-center p-6 border border-gray-200 rounded-2xl shadow-sm bg-[#f9f9f7] mb-10">
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#265947] mb-4">
-          Why Vegan?
-        </h1>
-        <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-gray-700 mb-6">
-          At its heart, veganism is about compassion for animals—choosing not to harm those who can think, feel, and suffer. 
-          In doing so, we also protect our planet and support our own health, creating a life that reflects our values in every bite.
-        </p>
+    <>
+      {/* 🔍 SEO Helmet */}
+      <Helmet>
+        <title>Why Go Vegan? | Plants Over Pain</title>
+        <meta
+          name="description"
+          content="Explore ethical, environmental, and health reasons to go vegan, with evidence-based insights and practical guidance."
+        />
+        <link rel="canonical" href="https://plantsoverpain.org/whyvegan" />
+      </Helmet>
 
-        {/* Tabs */}
-        <div className="flex justify-center flex-wrap gap-2 mb-6">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-full border transition-colors duration-200 ${
-                activeTab === tab.id
-                  ? "bg-[#265947] text-white border-[#265947]"
-                  : "bg-white text-[#265947] border-gray-300 hover:bg-gray-50"
-              }`}
-            >
-              {tab.title}
-            </button>
-          ))}
-        </div>
+      <div className="px-4 pt-10 pb-20 text-[#3a3a3a]">
+        <section className="max-w-4xl mx-auto text-center p-6 border border-gray-200 rounded-2xl shadow-sm bg-[#f9f9f7] mb-10">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#265947] mb-4">
+            Why Vegan?
+          </h1>
+          <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-gray-700 mb-6">
+            At its heart, veganism is about compassion for animals—choosing not
+            to harm those who can think, feel, and suffer. In doing so, we also
+            protect our planet and support our own health, creating a life that
+            reflects our values in every bite.
+          </p>
 
-        {/* Content */}
-        <div
-          key={activeTab}
-          className="text-left max-w-2xl mx-auto space-y-4 animate-[fadeIn_280ms_ease-out_forwards]"
-        >
-          {tabs.find((tab) => tab.id === activeTab)?.content}
-        </div>
-      </section>
+          {/* Tabs */}
+          <div className="flex justify-center flex-wrap gap-2 mb-6">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 py-2 rounded-full border transition-colors duration-200 ${
+                  activeTab === tab.id
+                    ? "bg-[#265947] text-white border-[#265947]"
+                    : "bg-white text-[#265947] border-gray-300 hover:bg-gray-50"
+                }`}
+              >
+                {tab.title}
+              </button>
+            ))}
+          </div>
 
-      {/* tiny keyframes for the content fade */}
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(4px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-    </div>
+          {/* Content */}
+          <div
+            key={activeTab}
+            className="text-left max-w-2xl mx-auto space-y-4 animate-[fadeIn_280ms_ease-out_forwards]"
+          >
+            {tabs.find((tab) => tab.id === activeTab)?.content}
+          </div>
+        </section>
+
+        {/* tiny keyframes for the content fade */}
+        <style>{`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+        `}</style>
+      </div>
+    </>
   );
 }
