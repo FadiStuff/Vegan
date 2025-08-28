@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Plants Over Pain</title>
-    <link rel="canonical" href="https://plantsoverpain.org/" />
+  <!-- 🔍 Basic SEO -->
+  <title>Plants Over Pain | Vegan Advocacy & Ethics</title>
+  <meta name="description" content="Plants Over Pain is a vegan advocacy site challenging animal exploitation with clear, practical guidance and evidence-backed arguments." />
+  <link rel="canonical" href="https://plantsoverpain.org/" />
 
-    <!-- Restore original path if redirected from 404.html -->
-    <script>
-      (function () {
-        var params = new URLSearchParams(window.location.search);
-        if (params.has('p')) {
-          var path = params.get('p');
-          window.history.replaceState(null, '', path);
-        }
-      })();
-    </script>
-    <script type="module" crossorigin src="/assets/index-75a71870.js"></script>
-    <link rel="stylesheet" href="/assets/index-d7d9e8e3.css">
-  </head>
+  <!-- 🌐 Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- 🗺️ Schema.org Basic Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Plants Over Pain",
+    "url": "https://plantsoverpain.org",
+    "logo": "https://plantsoverpain.org/favicon.ico"
+  }
+  </script>
+
+  <!-- 🔗 SPA Path Restore -->
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.has('p')) {
+        var path = params.get('p');
+        window.history.replaceState(null, '', path);
+      }
+    })();
+  </script>
+  <script type="module" crossorigin src="/assets/index-fe40edb4.js"></script>
+  <link rel="stylesheet" href="/assets/index-c2ae3d8f.css">
+</head>
+
   <body>
     <div id="root"></div>
     
