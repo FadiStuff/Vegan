@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async"; // ✅ NEW
 import Arguments from "./Arguments";
+import NotFound from "./NotFound";
 import WhyJustSomeAnimals from "./WhyJustSomeAnimals";
 import RightSideOfHistory from "./RightSideOfHistory";
 import Layout from "./Layout";
@@ -11,9 +12,7 @@ import WhyVegan from "./WhyVegan";
 import VeganismIs from "./VeganismIs";
 import SourcesOfMeat from "./SourcesOfMeat";
 import PhotoCredits from "./PhotoCredits.jsx";
-import VeganAthletes from "./VeganAthletes";
-import VeganCelebrities from "./VeganCelebrities";
-import VeganHealthPros from "./VeganHealthPros";
+
 import HomeTest from "./HomeTest.jsx";
 import PeopleDiets from "./PeopleDiets.jsx";
 
@@ -49,6 +48,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/whyvegan" element={<WhyVegan />} />
             <Route path="/photo-credits" element={<PhotoCredits />} />
             <Route path="/people" element={<PeopleDiets />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
       </Router>
