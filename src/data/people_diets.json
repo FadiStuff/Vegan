@@ -528,7 +528,7 @@
   "category": "Actor",
   "country": "United States",
   "diet": {
-    "type": "Eats meat",
+    "type": "Vegan",
     "since_year": null,
     "status_note": "Not vegan—while she has been celebrated for promoting vegan fashion and cruelty-free brands (PETA's 'Vegan Queen' in 2023), she has admitted to eating fish and struggling to maintain a fully vegan diet.",
     "last_verified": "2025-08-28",
@@ -809,7 +809,7 @@
         "health"
       ],
       "needs_verification": true,
-      "certified_vegan": true
+      "certified_vegan": false
     },
     {
       "id": "peter-dinklage",
@@ -21986,35 +21986,7 @@
       "needs_verification": true,
       "certified_vegan": false
     },
-    {
-      "id": "tulsi-gabbard",
-      "name": "Tulsi Gabbard",
-      "aliases": [],
-      "category": "Internet / media / public figure",
-      "country": "United States",
-      "diet": {
-        "type": "Vegan",
-        "since_year": null,
-        "status_note": "",
-        "last_verified": "2025-08-22",
-        "sources": [
-          {
-            "title": "Wikipedia: List of vegans",
-            "url": "https://en.wikipedia.org/wiki/List_of_vegans",
-            "date": "2025-08-22"
-          },
-          {
-            "title": "Tulsi Gabbard Thinks We're Doomed",
-            "url": "https://www.nytimes.com/2019/08/02/us/politics/tulsi-gabbard-2020-presidential-race.html",
-            "date": "2025-08-24"
-          }
-        ]
-      },
-      "notable_achievements": [],
-      "tags": [],
-      "needs_verification": true,
-      "certified_vegan": false
-    },
+    
     {
       "id": "tyler-bate",
       "name": "Tyler Bate",
@@ -126338,7 +126310,7 @@
       "id": "tulsi_gabbard",
       "name": "Tulsi Gabbard",
       "aliases": [],
-      "category": "Politics / public figure",
+      "category": "Internet / media / public figure",
       "country": "United States",
       "diet": {
         "type": "Vegan",
