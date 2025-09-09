@@ -67,13 +67,13 @@ export default function Layout({ children }) {
                   className="absolute mt-2 w-64 rounded-xl shadow-lg bg-white border border-gray-200 z-50 p-2 flex flex-col gap-1"
                 >
                   <NavLink to="/why-just-some-animals" className={linkCls} onClick={closeMenu} role="menuitem">
-                    Some animals, not others?
+                    So we eat some animals, not others?
                   </NavLink>
                   <NavLink to="/sourcesofmeat" className={linkCls} onClick={closeMenu} role="menuitem">
-                    Sources of meat
+                    Where does our meat come from?
                   </NavLink>
                   <NavLink to="/first-vegan" className={linkCls} onClick={closeMenu} role="menuitem">
-                    The First Vegan
+                    Who was the first vegan?
                   </NavLink>
                 </div>
               )}
