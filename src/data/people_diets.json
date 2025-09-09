@@ -104214,6 +104214,97 @@
       "certified_vegan": false
     },
     {
+  "id": "robbie-savage",
+  "name": "Robbie Savage",
+  "aliases": [],
+  "category": "Football Manager / Former Player",
+  "country": "Wales",
+  "diet": {
+    "type": "Vegan",
+    "since_year": 2025,
+    "status_note": "Adopted a fully vegan diet after becoming manager of eco-friendly Forest Green Rovers, including cutting meat and dairy, and switching to oat milk.",
+    "last_verified": "2025-07-14",
+    "sources": [
+      {
+        "title": "Football star reveals he has become a vegan after joining eco-friendly non-league club as manager",
+        "url": "https://www.thesun.co.uk/sport/35737246/robbie-savage-football-vegan-manager-forest-green-rovers/",
+        "date": "2025-07-07"
+      },
+      {
+        "title": "Vegan NIBs: Plant-powered football",
+        "url": "https://jvs.org.uk/articles/vegan-nibs-plant-powered-football/",
+        "date": "2025-07-14"
+      },
+      {
+        "title": "Robbie Savage – Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Robbie_Savage",
+        "date": "2025-09-09"
+      }
+    ]
+  },
+  "notable_achievements": [
+    "Former Wales international with 39 caps",
+    "Premier League player for clubs including Leicester City, Birmingham City, Blackburn Rovers, Derby County",
+    "Current manager of Forest Green Rovers (appointed July 1, 2025)"
+  ],
+  "tags": [
+    "football",
+    "sustainability",
+    "media"
+  ],
+  "needs_verification": false,
+  "certified_vegan": false
+},
+{
+  "id": "nikki-tamboli",
+  "name": "Nikki Tamboli",
+  "aliases": [],
+  "category": "Actor / Television Personality",
+  "country": "India",
+  "diet": {
+    "type": "Vegan",
+    "since_year": 2025,
+    "status_note": "Turned vegan in mid-2025 during Eid, stating it was her 'inner calling' and emphasizing veganism as a conscious lifestyle choice rather than a diet.",
+    "last_verified": "2025-09-09",
+    "sources": [
+      {
+        "title": "Nikki Tamboli on turning vegan: 'My inner calling prompted me to make this choice'",
+        "url": "https://timesofindia.indiatimes.com/tv/news/hindi/nikki-tamboli-on-turning-vegan-says-my-inner-calling-prompted-me-to-make-this-choice/articleshow/121830189.cms",
+        "date": "2025-06-07"
+      },
+      {
+        "title": "Nikki Tamboli turns vegan despite dating Muslim actor Arbaz",
+        "url": "https://www.newkerala.com/news/o/nikki-tamboli-turns-vegan-despite-dating-muslim-actor-arbaz-817",
+        "date": "2025-06-07"
+      },
+      {
+        "title": "Nikki Tamboli turns vegan, calls it an individual choice",
+        "url": "https://ianslive.in/nikki-tamboli-turns-vegan-despite-dating-muslim-actor-arbaz-patel-calls-it-an-individual-choice--20250607144514",
+        "date": "2025-06-07"
+      },
+      {
+        "title": "Bollywood vegan stars: Nikki Tamboli goes vegan",
+        "url": "https://vegnews.com/bollywood-vegan",
+        "date": "2025-06-10"
+      }
+    ]
+  },
+  "notable_achievements": [
+    "Actress known for Hindi films and television",
+    "Contestant on Bigg Boss 14",
+    "Contestant on Fear Factor: Khatron Ke Khiladi 11"
+  ],
+  "tags": [
+    "television",
+    "bollywood",
+    "activism"
+  ],
+  "needs_verification": false,
+  "certified_vegan": false
+}
+,
+    
+    {
       "id": "tiwa-savage",
       "name": "Tiwa Savage",
       "aliases": [],

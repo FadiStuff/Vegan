@@ -11,6 +11,7 @@ import Layout from "./Layout";
 import WhyVegan from "./WhyVegan";
 import VeganismIs from "./VeganismIs";
 import SourcesOfMeat from "./SourcesOfMeat";
+import FirstVegan from "./FirstVegan";
 import PhotoCredits from "./PhotoCredits.jsx";
 
 import HomeTest from "./HomeTest.jsx";
@@ -47,6 +48,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/why-just-some-animals" element={<WhyJustSomeAnimals />} />
             <Route path="/whyvegan" element={<WhyVegan />} />
             <Route path="/photo-credits" element={<PhotoCredits />} />
+            <Route path="/first-vegan" element={<FirstVegan />} />
             <Route path="/people" element={<PeopleDiets />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
