@@ -4467,7 +4467,7 @@
       "category": "Actor",
       "country": "United Kingdom",
       "diet": {
-        "type": "Vegan",
+        "type": "Vegetarian",
         "since_year": null,
         "status_note": "",
         "last_verified": "2025-08-22",
@@ -5347,7 +5347,7 @@
     },
     {
       "id": "caldwell-esselstyn",
-      "name": "Caldwell Esselstyn",
+      "name": "Dr. Caldwell Esselstyn",
       "aliases": [],
       "category": "Scientists / Inventors",
       "country": "United States",
@@ -23217,30 +23217,7 @@
       "needs_verification": true,
       "certified_vegan": false
     },
-    {
-      "id": "dr-caldwell-esselstyn",
-      "name": "Dr. Caldwell Esselstyn",
-      "aliases": [],
-      "category": "Author / Artist",
-      "country": "United States",
-      "diet": {
-        "type": "Vegan",
-        "since_year": null,
-        "status_note": "",
-        "last_verified": "2025-08-22",
-        "sources": [
-          {
-            "title": "Wikipedia: List of vegans",
-            "url": "https://en.wikipedia.org/wiki/List_of_vegans",
-            "date": "2025-08-22"
-          }
-        ]
-      },
-      "notable_achievements": [],
-      "tags": [],
-      "needs_verification": true,
-      "certified_vegan": false
-    },
+    
     {
       "id": "dr-dean-ornish",
       "name": "Dr. Dean Ornish",
