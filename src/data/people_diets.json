@@ -37617,7 +37617,7 @@
       "category": "Musician",
       "country": "United States",
       "diet": {
-        "type": "Eats meat",
+        "type": "Vegetarian",
         "since_year": null,
         "status_note": "",
         "last_verified": "",
@@ -42779,7 +42779,7 @@
       "category": "Musician",
       "country": "South Africa",
       "diet": {
-        "type": "Eats meat",
+        "type": "Vegan",
         "since_year": null,
         "status_note": "",
         "last_verified": "",
