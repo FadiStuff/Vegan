@@ -44,7 +44,10 @@ const PeopleDiets = () => {
 
   const categories = ["All", ...new Set(data.people.map((p) => p.category).filter(Boolean))];
   const diets = ["All", ...new Set(data.people.map((p) => p.diet.type).filter(Boolean))];
-  const countries = ["All", ...new Set(data.people.map((p) => p.country).filter(Boolean))];
+  const countries = [
+  "All",
+  ...new Set(data.people.map((p) => p.country).filter(Boolean)),
+].sort((a, b) => a.localeCompare(b));
 
   // read query params
   useEffect(() => {
