@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import data from "./data/people_diets.json";
 
-// --- helpers for reading URL params ---
 function slugify(str = "") {
   return String(str)
     .toLowerCase()
@@ -41,15 +40,15 @@ const PeopleDiets = () => {
   const [sortOption, setSortOption] = useState("Name");
   const [onlyCertified, setOnlyCertified] = useState(false);
   const [filteredPeople, setFilteredPeople] = useState([]);
+  const [expandedCards, setExpandedCards] = useState({});
 
   const categories = ["All", ...new Set(data.people.map((p) => p.category).filter(Boolean))];
   const diets = ["All", ...new Set(data.people.map((p) => p.diet.type).filter(Boolean))];
   const countries = [
-  "All",
-  ...new Set(data.people.map((p) => p.country).filter(Boolean)),
-].sort((a, b) => a.localeCompare(b));
+    "All",
+    ...new Set(data.people.map((p) => p.country).filter(Boolean)),
+  ].sort((a, b) => a.localeCompare(b));
 
-  // read query params
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const categoryParam = params.get("category");
@@ -74,7 +73,6 @@ const PeopleDiets = () => {
     if (!showCertifiedControl && onlyCertified) setOnlyCertified(false);
   }, [showCertifiedControl, onlyCertified]);
 
-  // filtering
   useEffect(() => {
     let people = data.people;
 
@@ -127,9 +125,27 @@ const PeopleDiets = () => {
     return parts.length ? parts.join(" • ") : "All people";
   }, [dietFilter, categoryFilter, countryFilter]);
 
+  const getNotableLines = (raw) => {
+    if (!raw) return [];
+    let items = [];
+    if (Array.isArray(raw)) {
+      items = raw.flatMap((it) => String(it));
+    } else {
+      items = [String(raw)];
+    }
+    const lines = items
+      .flatMap((s) => s.split(/[\.;!?]\s*/))
+      .map((s) => s.trim())
+      .filter(Boolean);
+    return lines.length ? lines : items.map((s) => String(s).trim()).filter(Boolean);
+  };
+
+  const toggleExpand = (id) => {
+    setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
   return (
     <>
-      {/* 🔍 SEO Helmet */}
       <Helmet>
         <title>Vegan & Plant-Based People Directory | Plants Over Pain</title>
         <meta
@@ -140,7 +156,6 @@ const PeopleDiets = () => {
       </Helmet>
 
       <div className="px-6 pt-6 pb-16 max-w-[90rem] mx-auto">
-        {/* Context line */}
         <div className="mb-4 flex items-center gap-3 text-sm text-gray-600 flex-wrap">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8f3ee] text-[#1f4a3a] border border-[#cfe6dc] font-medium">
             {contextLabel}
@@ -158,11 +173,9 @@ const PeopleDiets = () => {
           )}
         </div>
 
-        {/* Toolbar */}
         <div className="mb-6">
           <div className="bg-[#f9f9f7] border border-gray-200 rounded-2xl shadow-sm p-3 md:p-4">
             <div className="flex flex-nowrap items-center gap-3 overflow-x-auto">
-              {/* Search */}
               <input
                 type="search"
                 placeholder="Search by name, category, or country"
@@ -172,55 +185,45 @@ const PeopleDiets = () => {
                 aria-label="Search by name, category, or country"
               />
 
-              {/* Category */}
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
                 className="flex-[1] min-w-[150px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
               >
                 <option value="All">All categories</option>
-                {categories
-                  .filter((c) => c !== "All")
-                  .map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
+                {categories.filter((c) => c !== "All").map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
               </select>
 
-              {/* Diet */}
               <select
                 value={dietFilter}
                 onChange={(e) => setDietFilter(e.target.value)}
                 className="flex-[1] min-w-[150px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
               >
                 <option value="All">All diet types</option>
-                {diets
-                  .filter((d) => d !== "All")
-                  .map((d) => (
-                    <option key={d} value={d}>
-                      {d}
-                    </option>
-                  ))}
+                {diets.filter((d) => d !== "All").map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
               </select>
 
-              {/* Country */}
               <select
                 value={countryFilter}
                 onChange={(e) => setCountryFilter(e.target.value)}
                 className="flex-[1] min-w-[160px] h-11 border border-gray-300 rounded-md px-2 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#265947]/40 focus:border-[#265947]"
               >
                 <option value="All">All countries</option>
-                {countries
-                  .filter((c) => c !== "All")
-                  .map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
+                {countries.filter((c) => c !== "All").map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
               </select>
 
-              {/* Sort */}
               <select
                 value={sortOption}
                 onChange={(e) => setSortOption(e.target.value)}
@@ -231,7 +234,6 @@ const PeopleDiets = () => {
                 <option value="Certified">Sort: Certified first</option>
               </select>
 
-              {/* Certified toggle */}
               {showCertifiedControl && (
                 <label className="ml-auto flex items-center gap-2 text-sm select-none whitespace-nowrap shrink-0">
                   <input
@@ -247,30 +249,54 @@ const PeopleDiets = () => {
           </div>
         </div>
 
-        {/* Results grid */}
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
-          {filteredPeople.map((p) => (
-            <li
-              key={p.id}
-              className="border rounded-xl p-4 shadow-sm bg-white ring-1 ring-black/5"
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <h2 className="font-semibold text-lg">{p.name}</h2>
-                {p.certified_vegan && (
-                  <span
-                    title="Verified vegan lifestyle (strict, recent, no contradictions)"
-                    aria-label="Certified Vegan: verified vegan lifestyle (strict, recent, no contradictions)"
-                    className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 border border-green-200"
+          {filteredPeople.map((p) => {
+            const lines = getNotableLines(p.notable_achievements);
+            const expanded = expandedCards[p.id] || false;
+            const hasExtra = lines.length > 2;
+
+            return (
+              <li key={p.id} className="border rounded-xl p-4 shadow-sm bg-white ring-1 ring-black/5">
+                <div className="flex items-center gap-2 mb-1">
+                  <h2 className="font-semibold text-lg">{p.name}</h2>
+                  {p.certified_vegan && (
+                    <span
+                      title="Verified full vegan lifestyle. Not just diet. No use of animal products (strict, recent, no contradictions)"
+                      aria-label="Verified full vegan lifestyle. Not just diet. No use of animal products (strict, recent, no contradictions)"
+                      className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 border border-green-200"
+                    >
+                      Certified
+                    </span>
+                  )}
+                </div>
+
+                {lines.length > 0 && (
+                  <div
+                    className={`text-sm text-gray-600 italic mb-2 transition-all duration-300 ease-in-out overflow-hidden ${
+                      expanded ? "max-h-[500px]" : "max-h-[3.5rem] line-clamp-2"
+                    }`}
                   >
-                    Certified Vegan
-                  </span>
+                    {lines.map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                  </div>
                 )}
-              </div>
-              <p className="text-sm text-gray-700">{p.category}</p>
-              <p className="text-sm text-gray-700">Diet: {p.diet.type}</p>
-              <p className="text-sm text-gray-700">Country: {p.country || "N/A"}</p>
-            </li>
-          ))}
+
+                {hasExtra && (
+                  <button
+                    className="text-xs text-blue-600 hover:underline mb-2"
+                    onClick={() => toggleExpand(p.id)}
+                  >
+                    {expanded ? "Show less" : "Show more"}
+                  </button>
+                )}
+
+                <p className="text-sm text-gray-700">Category: {p.category}</p>
+                <p className="text-sm text-gray-700">Diet: {p.diet.type}</p>
+                <p className="text-sm text-gray-700">Country: {p.country || "N/A"}</p>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>
