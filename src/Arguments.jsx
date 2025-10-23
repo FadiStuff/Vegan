@@ -39,9 +39,19 @@ export default function Arguments() {
     );
   }, [responseType, argumentType, query]);
 
+  // Unique types for dropdown
   const types = useMemo(() => {
     const set = new Set(data.map((d) => d.type).filter(Boolean));
     return ["All", ...Array.from(set).sort()];
+  }, []);
+
+  // Counts for each type + All
+  const counts = useMemo(() => {
+    const byType = data.reduce((acc, d) => {
+      if (d.type) acc[d.type] = (acc[d.type] || 0) + 1;
+      return acc;
+    }, {});
+    return { all: data.length, byType };
   }, []);
 
   const filtered = useMemo(() => {
@@ -84,16 +94,12 @@ export default function Arguments() {
         <link rel="canonical" href="https://plantsoverpain.org/arguments" />
       </Helmet>
 
-      <div className="px-4 py-12 text-[#3a3a3a]">
+      <div className="px-4 pt-6 pb-12 text-[#3a3a3a]">
         <div className="max-w-4xl mx-auto">
           <header className="text-center mb-6">
             <h1 className="text-5xl font-bold text-[#265947] mb-2 font-serif leading-snug">
               Arguments & Responses
             </h1>
-            <p className="text-base text-gray-600 max-w-2xl mx-auto">
-              Explore common concerns and questions about veganism. Select an angle,
-              filter by type, and open the details you want.
-            </p>
           </header>
 
           {/* Controls */}
@@ -106,11 +112,15 @@ export default function Arguments() {
                   value={argumentType}
                   onChange={(e) => setArgumentType(e.target.value)}
                 >
-                  {types.map((t) => (
-                    <option key={t} value={t}>
-                      {t}
-                    </option>
-                  ))}
+                  {types.map((t) => {
+                    const count =
+                      t === "All" ? counts.all : (counts.byType[t] ?? 0);
+                    return (
+                      <option key={t} value={t}>
+                        {t} ({count})
+                      </option>
+                    );
+                  })}
                 </select>
               </label>
 
@@ -207,7 +217,10 @@ export default function Arguments() {
 
                   {res.tldr && (
                     <div className="px-4 md:px-5 pb-4">
-                      <div className="bg-green-50 border-l-4 border-green-400 p-4 rounded-md max-w-2xl">
+                      <div
+                        className="bg-green-50 border-l-4 border-green-400 p-4 rounded-md w-full cursor-pointer"
+                        onClick={() => toggle(arg.id)}
+                      >
                         <p className="font-semibold text-green-900 mb-1 flex items-center gap-2">
                           <LeafIcon /> Quick answer
                         </p>

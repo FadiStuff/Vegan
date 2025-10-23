@@ -1681,7 +1681,7 @@
         "game-changers"
       ],
       "needs_verification": true,
-      "certified_vegan": true
+      "certified_vegan": false
     },
     {
       "id": "deandre-jordan",
@@ -1727,7 +1727,7 @@
         "vegan-celebrity"
       ],
       "needs_verification": true,
-      "certified_vegan": true
+      "certified_vegan": false
     },
     {
       "id": "javale-mcgee",
@@ -1842,7 +1842,7 @@
         "author"
       ],
       "needs_verification": true,
-      "certified_vegan": true
+      "certified_vegan": false
     },
     {
       "id": "fiona-oakes",
